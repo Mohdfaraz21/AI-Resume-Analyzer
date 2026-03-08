@@ -1,13 +1,23 @@
 import type { Route } from "./+types/home";
-import { Welcome } from "../welcome/welcome";
+import Navbar from "../components/Navbar";
 
 export function meta({}: Route.MetaArgs) {
   return [
-    { title: "AI ResumeIQ " },
-    { name: "description", content: "Welcome to React Router!" },
+    { title: "Resumind " },
+    { name: "description", content: "Smart Feedback for Your Resume!" },
   ];
 }
 
 export default function Home() {
-  return <Welcome />;
+  return (
+    <main className="bg-[url('/images/bg-main.svg')] bg-cover">
+      <Navbar />
+      <section className="main-section">
+        <div className="page-heading">
+          <h1>Track your Applications & Resume Rating</h1>
+          <h2>Get instant feedback on your resume and track your job applications in one place.</h2>
+        </div>
+        </section>
+    </main>
+  );
 }
