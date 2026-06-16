@@ -1,18 +1,16 @@
-import { Link, useNavigate, useParams, type Route, type MetaFunction} from "react-router";
+import {Link, useNavigate, useParams} from "react-router";
 import {useEffect, useState} from "react";
-import {usePuterStore} from "../lib/puter";
-import Summary from "../components/Summary";
-import ATS from "../components/ATS";
-import Details from "../components/Details";
+import {usePuterStore} from "~/lib/puter";
+import Summary from "~/components/Summary";
+import ATS from "~/components/ATS";
+import Details from "~/components/Details";
 
-export function meta({}: Route.MetaArgs) {
-    return {
-        title: "Resumind | Review ",
-        description: "Detailed overview of your resume",
-    }
-}
+export const meta = () => ([
+    { title: 'Resumind | Review ' },
+    { name: 'description', content: 'Detailed overview of your resume' },
+])
 
-export default function Resume() {
+const Resume = () => {
     const { auth, isLoading, fs, kv } = usePuterStore();
     const { id } = useParams();
     const [imageUrl, setImageUrl] = useState('');
@@ -89,4 +87,4 @@ export default function Resume() {
         </main>
     )
 }
-export default Resume;
+export default Resume
